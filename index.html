@@ -6,27 +6,27 @@
   <title>Feliz Aniversário, Thais!</title>
   <style>
     body {
-      background-color: white;
-      background-image: url('https://i.imgur.com/1nTnLrJ.png'); /* Corações vermelhos */
-      background-repeat: repeat;
+      background-color: #fff;
+      background-image: url('https://i.imgur.com/3hfVZyN.png'); /* Fundo com corações vermelhos */
       background-size: contain;
+      background-repeat: repeat;
       font-family: 'Arial', sans-serif;
       text-align: center;
       padding: 20px;
     }
-
     h1 {
       color: #d63384;
       font-size: 3em;
     }
-
     p {
       color: #333;
       font-size: 1.2em;
       max-width: 800px;
       margin: 10px auto 30px;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 15px;
     }
-
     img {
       width: 80%;
       max-width: 400px;
@@ -35,7 +35,6 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       display: block;
     }
-
     .music-button {
       display: inline-block;
       background-color: #ff4da6;
@@ -47,17 +46,14 @@
       font-weight: bold;
       transition: 0.3s;
     }
-
     .music-button:hover {
       background-color: #e60073;
     }
-
     #proposal {
       margin-top: 40px;
       font-size: 1.8em;
       color: #d63384;
     }
-
     .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -68,18 +64,8 @@
       transition: 0.3s;
       border: none;
     }
-
-    .yes {
-      background-color: #28a745;
-      color: white;
-    }
-
-    .no {
-      background-color: #dc3545;
-      color: white;
-      position: relative;
-    }
-
+    .yes { background-color: #28a745; color: white; }
+    .no { background-color: #dc3545; color: white; position: relative; }
     #message {
       margin-top: 30px;
       font-size: 1.6em;
@@ -100,17 +86,16 @@
 
   <h1>Feliz Aniversário, Thais Moreira! 🎉❤</h1>
 
-  <p>Oi meu amor.. Sei que hoje é seu aniversário e hoje você completa seu querido 19 anos hahaha, minha princesa está cada vez ficando mais adulta e hoje eu estou ficando cada vez orgulhoso da pessoa que você está se tornando. Sou grato a Deus por ter você em minha vida meu amor, você se tornou minha lua, minha melhor amiga, minha companheira e eu quero isso pro restante da minha vida viu?? Saiba que eu te amo mais que tudo nessa vida! Você foi a minha claridade onde existiu escuridão e também você foi o meu oxigênio onde não havia mais esperança! Hoje estou contigo e sou o homem mais feliz desse universo inteiro! E saiba que eu quero conviver pro resto da minha vida ! E eu tenho um pedido aqui pra você e eu espero que aceite hihi, eu te amo demais minha princesa.</p>
+  <p>Oi meu amor... Sei que hoje é seu aniversário e você completa seus lindos 19 anos hahaha. Minha princesa está cada vez mais adulta e eu estou cada vez mais orgulhoso da mulher incrível que você está se tornando. Você é minha lua, minha companheira, minha melhor amiga. Eu te amo com todo meu coração e quero viver ao seu lado pra sempre. Obrigado por ser minha luz onde havia escuridão. 💖</p>
 
   <a class="music-button" href="https://youtu.be/Fzmvv8fSyQs?t=58" target="_blank">▶ Ouvir nossa música</a>
 
   <h2>Nossas Memórias 📸</h2>
 
-  <!-- Fotos reais enviadas -->
-  <img src="cbac3ae4-fc91-4131-b1e3-ecc4725b9124.jpeg" alt="Foto 1">
-  <img src="45300397-84ea-430d-950b-acc3d0a474ca.jpeg" alt="Foto 2">
-  <img src="dd890a5c-c852-4b61-9288-6a8c1cb5c655.jpeg" alt="Foto 3">
-  <img src="1e744c41-cc15-45db-adf6-ece3ebd52953.jpeg" alt="Foto 4">
+  <img src="foto-nos1.jpeg" foto-nos1.jpeg
+  <img src="foto-nos2.jpeg" foto-nos2.jpeg
+  <img src="foto-nos3.jpeg"foto-nos3.jpeg
+  <img src="foto-nos4.jpeg" foto-nos4.jpeg
 
   <div id="proposal">
     Quer casar comigo?
@@ -122,7 +107,6 @@
   <div id="message"></div>
 
   <script>
-    // Botão NÃO foge
     const noButton = document.getElementById('noButton');
     noButton.addEventListener('mouseover', function () {
       const x = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
@@ -132,11 +116,10 @@
       noButton.style.top = y + 'px';
     });
 
-    // Botão SIM
     const yesBtn = document.getElementById('yesBtn');
     const messageDiv = document.getElementById('message');
     yesBtn.addEventListener('click', () => {
-      messageDiv.innerHTML = <span style="font-size: 2em;">💍💖 Eu te amo, minha futura esposa! 💖💍</span>;
+      messageDiv.textContent = 'Sabia que você ia dizer SIM, meu amor! 😍💕';
       yesBtn.disabled = true;
       noButton.disabled = true;
     });
