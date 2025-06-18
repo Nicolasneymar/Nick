@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feliz Aniversário, Thais!</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 3em;
+    }
+    p {
+      color: #333;
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 10px auto 40px;
+    }
+    .carousel {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto 40px;
+    }
+    .carousel img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      margin-top: 10px;
+    }
+    .carousel-button {
+      background-color: #d63384;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .carousel-button:hover {
+      background-color: #a0265e;
+    }
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+    }
+    .music-button {
+      display: inline-block;
+      background-color: #ff4da6;
+      color: white;
+      padding: 10px 20px;
+      margin: 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .music-button:hover {
+      background-color: #e60073;
+    }
+    #proposal {
+      margin-top: 40px;
+      font-size: 1.8em;
+      color: #d63384;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+    }
+    .yes { background-color: #28a745; color: white; }
+    .no { background-color: #dc3545; color: white; position: relative; }
+    #message {
+      margin-top: 30px;
+      font-size: 1.6em;
+      color: #28a745;
+      font-weight: bold;
+    }
+    #audio-control {
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #d63384;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Proteção por senha -->
+  <script>
+    var senha = prompt("Digite a senha para acessar o site:");
+    if(senha !== "surpresa123") {
+      document.body.innerHTML = "<h1>Acesso Negado 🚫</h1>";
+    }
+  </script>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <h1>Feliz Aniversário, Thais Moreira! 🎉❤️</h1>
+
+  <p>Oi meu amor.. Sei que hoje é seu aniversário e hoje você completa seus 19 anos hahaha, minha princesa está cada vez ficando mais adulta... Eu te amo mais que tudo nessa vida!</p>
+
+  <a class="music-button" href="https://youtu.be/Fzmvv8fSyQs?t=58" target="_blank" rel="noopener noreferrer">▶️ Ouvir nossa música no YouTube</a>
+
+  <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
+  <div id="audio-control">▶️ Tocar música ambiente</div>
+
+  <h2>Nossas Memórias 📸</h2>
+  <div class="carousel">
+    <img src="Imagem1.jpg" alt="Foto 1" class="active" />
+    <img src="Imagem2.jpg" alt="Foto 2" />
+    <img src="Imagem3.jpg" alt="Foto 3" />
+    <img src="Imagem4.jpg" alt="Foto 4" />
+    <img src="Imagem5.jpg" alt="Foto 5" />
+    <img src="Imagem6.jpg" alt="Foto 6" />
+    <div class="carousel-controls">
+      <button class="carousel-button" id="prev-btn">◀️ Anterior</button>
+      <button class="carousel-button" id="next-btn">Próximo ▶️</button>
+    </div>
+  </div>
+
+  <div id="proposal">
+    Quer casar comigo?
+    <br />
+    <button class="btn yes" id="yesBtn">SIM ❤️</button>
+    <button class="btn no" id="noButton">NÃO ❌</button>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    // Botão NÃO foge
+    const noButton = document.getElementById('noButton');
+    noButton.addEventListener('mouseover', function () {
+      const x = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+      const y = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+      noButton.style.position = 'absolute';
+      noButton.style.left = x + 'px';
+      noButton.style.top = y + 'px';
+    });
+
+    // Botão SIM
+    const yesBtn = document.getElementById('yesBtn');
+    const messageDiv = document.getElementById('message');
+    yesBtn.addEventListener('click', () => {
+      messageDiv.textContent = 'Sabia que você ia dizer SIM, meu amor! 😍💕';
+      yesBtn.disabled = true;
+      noButton.disabled = true;
+    });
+
+    // Carrossel
+    const images = document.querySelectorAll('.carousel img');
+    let current = 0;
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      images.forEach((img, i) => img.classList.toggle('active', i === current));
+    });
+    document.getElementById('next-btn').addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      images.forEach((img, i) => img.classList.toggle('active', i === current));
+    });
+
+    // Música
+    const audio = document.getElementById('audio');
+    const audioControl = document.getElementById('audio-control');
+    let isPlaying = false;
+    audioControl.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        audioControl.textContent = '▶️ Tocar música ambiente';
+      } else {
+        audio.play();
+        audioControl.textContent = '⏸️ Pausar música';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Confete
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H;
+
+    function resizeCanvas() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Confetti {
+      constructor() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H - H;
+        this.r = Math.random() * 6 + 4;
+        this.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        this.speed = Math.random() * 3 + 2;
+        this.tilt = Math.random() * 10 - 10;
+        this.tiltSpeed = Math.random() * 0.1 + 0.05;
+      }
+      update() {
+        this.y += this.speed;
+        this.x += Math.sin(this.tilt);
+        this.tilt += this.tiltSpeed;
+        if (this.y > H) {
+          this.y = -this.r;
+          this.x = Math.random() * W;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.lineWidth = this.r / 2;
+        ctx.strokeStyle = this.color;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 2);
+        ctx.stroke();
+      }
+    }
+
+    const confettis = Array.from({ length: 100 }, () => new Confetti());
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, W, H);
+      confettis.forEach(c => { c.update(); c.draw(); });
+      requestAnimationFrame(animateConfetti);
+    }
+    animateConfetti();
+  </script>
+</body>
+</html>
