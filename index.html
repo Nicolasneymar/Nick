@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Feliz Aniversário, Thais!</title>
   <style>
     body {
-      background-color: #fff;
-      background-image: url('https://i.imgur.com/3hfVZyN.png'); /* Fundo com corações vermelhos */
-      background-size: contain;
-      background-repeat: repeat;
+      background-color: #ffe6f0;
       font-family: 'Arial', sans-serif;
       text-align: center;
       padding: 20px;
+      overflow-x: hidden;
     }
     h1 {
       color: #d63384;
@@ -22,10 +20,7 @@
       color: #333;
       font-size: 1.2em;
       max-width: 800px;
-      margin: 10px auto 30px;
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 20px;
-      border-radius: 15px;
+      margin: 10px auto;
     }
     img {
       width: 80%;
@@ -33,7 +28,17 @@
       margin: 10px auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      display: block;
+    }
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://cdn.pixabay.com/photo/2017/12/28/10/30/confetti-3042513_960_720.png');
+      background-size: cover;
+      opacity: 0.1;
     }
     .music-button {
       display: inline-block;
@@ -62,69 +67,53 @@
       font-size: 1.2em;
       cursor: pointer;
       transition: 0.3s;
-      border: none;
     }
-    .yes { background-color: #28a745; color: white; }
-    .no { background-color: #dc3545; color: white; position: relative; }
-    #message {
-      margin-top: 30px;
-      font-size: 1.6em;
-      color: #28a745;
-      font-weight: bold;
+    .yes {
+      background-color: #28a745;
+      color: white;
+    }
+    .no {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
     }
   </style>
 </head>
 <body>
+  <div class="confetti"></div>
+  <h1>Feliz Aniversário, Thais Moreira! 🎉❤️</h1>
 
-  <!-- Proteção por senha simples -->
-  <script>
-    var senha = prompt("Digite a senha para acessar o site:");
-    if(senha !== "surpresa123") {
-      document.body.innerHTML = "<h1>Acesso Negado 🚫</h1>";
-    }
-  </script>
+  <p>Oi meu amor.. Sei que hoje é seu aniversário e hoje você completa seu querido 19 anos hahaha, minha princesa está cada vez ficando mais adulta e hoje eu estou ficando cada vez orgulhoso da pessoa que você está se tornando. Sou grato a Deus por ter você em minha vida meu amor, você se tornou minha lua, minha melhor amiga, minha companheira e eu quero isso pro restante da minha vida viu?? Saiba que eu te amo mais que tudo nessa vida! Você foi a minha claridade onde existiu escuridão e também você foi ...
 
-  <h1>Feliz Aniversário, Thais Moreira! 🎉❤</h1>
+  <a class="music-button" href="https://youtu.be/Fzmvv8fSyQs?t=58" target="_blank">▶️ Ouvir nossa música</a>
 
-  <p>Oi meu amor... Sei que hoje é seu aniversário e você completa seus lindos 19 anos hahaha. Minha princesa está cada vez mais adulta e eu estou cada vez mais orgulhoso da mulher incrível que você está se tornando. Você é minha lua, minha companheira, minha melhor amiga. Eu te amo com todo meu coração e quero viver ao seu lado pra sempre. Obrigado por ser minha luz onde havia escuridão. 💖</p>
-
-  <a class="music-button" href="https://youtu.be/Fzmvv8fSyQs?t=58" target="_blank">▶ Ouvir nossa música</a>
+  <h2>Nosso Momento Juntos ❤️</h2>
+  <img src="https://i.postimg.cc/W3CX5Yh6/Imagem-do-Whats-App-de-2025-06-18-s-15-32-03-3d8c0715.jpg" alt="Foto nossa menor" style="width: 300px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); margin-bottom: 20px;" />
 
   <h2>Nossas Memórias 📸</h2>
-
-  <img src="foto-nos4.jpeg
-  <img src="foto-nos1.jpeg
-  <img src="foto-nos2.jpeg
-  <img src="foto-nos3.jpeg
-
+  <img src="https://i.postimg.cc/mDygwJdK/Imagem-do-Whats-App-de-2025-06-18-s-15-32-04-a05ed0a6.jpg" alt="Foto 1" />
+  <img src="https://i.postimg.cc/wMJ82mTM/Imagem-do-Whats-App-de-2025-06-18-s-15-32-04-8aceabcd.jpg" alt="Foto 2" />
+  <img src="https://i.postimg.cc/zvT6KY0R/Imagem-do-Whats-App-de-2025-06-18-s-15-32-04-22c8dfb8.jpg" alt="Foto 3" />
 
   <div id="proposal">
     Quer casar comigo?
-    <br>
-    <button class="btn yes" id="yesBtn">SIM ❤</button>
+    <br />
+    <button class="btn yes" onclick="alert('Sabia que você ia dizer SIM, meu amor! 😍')">SIM ❤️</button>
     <button class="btn no" id="noButton">NÃO ❌</button>
   </div>
 
-  <div id="message"></div>
-
   <script>
-    const noButton = document.getElementById('noButton');
-    noButton.addEventListener('mouseover', function () {
-      const x = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
-      const y = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
-      noButton.style.position = 'absolute';
-      noButton.style.left = x + 'px';
-      noButton.style.top = y + 'px';
-    });
-
-    const yesBtn = document.getElementById('yesBtn');
-    const messageDiv = document.getElementById('message');
-    yesBtn.addEventListener('click', () => {
-      messageDiv.textContent = 'Sabia que você ia dizer SIM, meu amor! 😍💕';
-      yesBtn.disabled = true;
-      noButton.disabled = true;
+    document.addEventListener('DOMContentLoaded', function () {
+      const noButton = document.getElementById('noButton');
+      noButton.addEventListener('mouseover', function () {
+        const x = Math.floor(Math.random() * (window.innerWidth - 100));
+        const y = Math.floor(Math.random() * (window.innerHeight - 100));
+        noButton.style.position = 'absolute';
+        noButton.style.left = x + 'px';
+        noButton.style.top = y + 'px';
+      });
     });
   </script>
-
 </body>
 </html>
+
